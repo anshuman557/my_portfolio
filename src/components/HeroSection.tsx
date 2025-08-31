@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download, ArrowDown, MapPin, Phone } from "lucide-react";
-import { ReactIcon,JavaScriptIcon, TypeScriptIcon, NodeIcon } from "./TechIcons";
-// import JavaScriptIcon from "@/assets/TechIcons/javaScript.svg"
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Download,
+  ArrowDown,
+  MapPin,
+  Phone,
+} from "lucide-react";
+import {
+  ReactIcon,
+  JavaScriptIcon,
+  TypeScriptIcon,
+  NodeIcon,
+} from "./TechIcons";
+import Resume from "@/assets/Anshuman_Resume.pdf";
 import { TypingAnimation } from "./TypingAnimation";
 
 const HeroSection = () => {
@@ -22,10 +35,10 @@ const HeroSection = () => {
           className="absolute hidden lg:block opacity-10"
           style={{ left: x, top: y }}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: 0.1, 
+          animate={{
+            opacity: 0.1,
             scale: 1,
-            y: [0, -20, 0]
+            y: [0, -20, 0],
           }}
           transition={{
             duration: 0.8,
@@ -33,8 +46,8 @@ const HeroSection = () => {
             y: {
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
-            }
+              ease: "easeInOut",
+            },
           }}
         >
           <Icon className="w-16 h-16" />
@@ -43,13 +56,14 @@ const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* Left side - Text content */}
-        <motion.div 
+        <motion.div
           className="space-y-8 lg:pr-8"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.div
+            className="mt-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -70,7 +84,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6 h-12 flex items-center">
-              <TypingAnimation 
+              <TypingAnimation
                 text="Full-Stack Software Developer"
                 typingSpeed={80}
                 deletingSpeed={40}
@@ -78,8 +92,9 @@ const HeroSection = () => {
               />
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Passionate about creating innovative web solutions with modern technologies. 
-              I specialize in React, Node.js, and building scalable applications that make a difference.
+              Passionate about creating innovative web solutions with modern
+              technologies. I specialize in React, Node.js, and building
+              scalable applications that make a difference.
             </p>
           </motion.div>
 
@@ -99,43 +114,63 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="flex flex-wrap gap-4 pt-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-gradient-primary hover:shadow-medium transition-all duration-300 group px-8"
+              onClick={() => {
+                window.open("mailto:anshumansingh1247@gmail.com", "_blank");
+              }}
             >
               <Mail className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               Get In Touch
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-primary/30 hover:bg-primary/5 hover:border-primary transition-all duration-300 group px-8"
+              onClick={() => {
+                window.open(Resume, "_blank");
+              }}
             >
               <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
               Download CV
             </Button>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="flex gap-4 pt-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:anshumansingh1247@gmail.com", label: "Email" }
+              {
+                icon: Github,
+                href: "https://github.com/anshuman557",
+                label: "GitHub",
+              },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/anshuman-singh-83b3ba200/",
+                label: "LinkedIn",
+              },
+              {
+                icon: Mail,
+                href: "mailto:anshumansingh1247@gmail.com",
+                label: "Email",
+              },
             ].map(({ icon: Icon, href, label }, index) => (
               <motion.a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 group"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -151,7 +186,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Right side - Profile image */}
-        <motion.div 
+        <motion.div
           className="flex justify-center lg:justify-end"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -163,39 +198,39 @@ const HeroSection = () => {
               className="absolute inset-0 bg-gradient-primary rounded-full opacity-20 blur-3xl"
               animate={{
                 scale: [1, 1.1, 1],
-                rotate: [0, 180, 360]
+                rotate: [0, 180, 360],
               }}
               transition={{
                 duration: 20,
                 repeat: Infinity,
-                ease: "linear"
+                ease: "linear",
               }}
             />
-            
+
             <motion.div
               className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full blur-sm"
               animate={{
                 y: [0, -20, 0],
-                opacity: [0.3, 0.8, 0.3]
+                opacity: [0.3, 0.8, 0.3],
               }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
             />
-            
+
             <motion.div
               className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/20 rounded-full blur-sm"
               animate={{
                 y: [0, 20, 0],
-                opacity: [0.2, 0.6, 0.2]
+                opacity: [0.2, 0.6, 0.2],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 1
+                delay: 1,
               }}
             />
 
@@ -207,9 +242,11 @@ const HeroSection = () => {
             >
               {/* Professional placeholder with initials */}
               <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
-                <span className="text-6xl md:text-8xl font-bold text-white/90">AS</span>
+                <span className="text-6xl md:text-8xl font-bold text-white/90">
+                  AS
+                </span>
               </div>
-              
+
               {/* Overlay with tech stack */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent flex items-end justify-center pb-8"
@@ -218,17 +255,19 @@ const HeroSection = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex gap-2">
-                  {[ReactIcon, JavaScriptIcon, TypeScriptIcon, NodeIcon].map((Icon, index) => (
-                    <motion.div
-                      key={index}
-                      className="w-8 h-8 bg-white/90 rounded-full p-1.5"
-                      initial={{ y: 20, opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <Icon className="w-full h-full" />
-                    </motion.div>
-                  ))}
+                  {[ReactIcon, JavaScriptIcon, TypeScriptIcon, NodeIcon].map(
+                    (Icon, index) => (
+                      <motion.div
+                        key={index}
+                        className="w-8 h-8 bg-white/90 rounded-full p-1.5"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                      >
+                        <Icon className="w-full h-full" />
+                      </motion.div>
+                    )
+                  )}
                 </div>
               </motion.div>
             </motion.div>
@@ -243,7 +282,9 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
-        <span className="text-xs text-muted-foreground font-medium">SCROLL DOWN</span>
+        <span className="text-xs text-muted-foreground font-medium">
+          SCROLL DOWN
+        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
